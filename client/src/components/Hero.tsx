@@ -1,16 +1,12 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
-interface HeroProps {
-  onCtaClick?: () => void;
-  onLearnMoreClick?: () => void;
-}
-
-export default function Hero({ onCtaClick, onLearnMoreClick }: HeroProps) {
+export default function Hero() {
   return (
     <section
       id="home"
       data-testid="hero-section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center"
     >
       <video
         autoPlay
@@ -26,49 +22,53 @@ export default function Hero({ onCtaClick, onLearnMoreClick }: HeroProps) {
         />
       </video>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
+      <div className="absolute inset-0 bg-black/60" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
-        <div className="animate-fade-in">
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-            data-testid="hero-title"
-          >
-            Pure Water, <span className="text-primary">Pure Life</span>
-          </h1>
-          <p
-            className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8"
-            data-testid="hero-subtitle"
-          >
-            Experience the difference with our advanced RO water purification
-            systems. Premium quality, professional installation, and dedicated
-            service for your home and business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={onCtaClick}
-              data-testid="hero-cta-primary"
-              className="text-lg px-8"
-            >
-              <i className="fa-solid fa-phone mr-2" />
-              Get Free Consultation
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <p className="text-primary text-sm font-medium tracking-widest uppercase mb-6 animate-fade-in">
+          Premium Water Purification
+        </p>
+        <h1
+          className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight animate-fade-in"
+          style={{ animationDelay: "0.1s" }}
+          data-testid="hero-title"
+        >
+          Pure water.
+          <br />
+          <span className="text-primary">Pure life.</span>
+        </h1>
+        <p
+          className="text-lg text-white/70 max-w-xl mx-auto mb-10 animate-fade-in"
+          style={{ animationDelay: "0.2s" }}
+          data-testid="hero-subtitle"
+        >
+          Advanced RO technology for homes and businesses. Experience the difference of truly clean water.
+        </p>
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <Link href="/products">
+            <Button size="lg" data-testid="hero-cta-primary" className="min-w-40">
+              View Products
             </Button>
+          </Link>
+          <Link href="/contact">
             <Button
               variant="outline"
               size="lg"
-              onClick={onLearnMoreClick}
               data-testid="hero-cta-secondary"
-              className="text-lg px-8 bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20"
+              className="min-w-40 bg-white/5 backdrop-blur border-white/20 text-white hover:bg-white/10"
             >
-              <i className="fa-solid fa-play mr-2" />
-              Explore Products
+              Get Quote
             </Button>
-          </div>
+          </Link>
         </div>
+      </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <i className="fa-solid fa-chevron-down text-white/60 text-2xl" />
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
         </div>
       </div>
     </section>
