@@ -219,28 +219,59 @@ export class MemStorage implements IStorage {
     return user;
   }
 
+
+  
   // Admin methods
-  async getAdminById(id: string): Promise<Admin | undefined> {
-    return this.admins.get(id);
+
+
+// Admin methods
+async getAdminById(id: string): Promise<Admin | undefined> {
+  return this.admins.get(id);
+}
+
+async getAdminByUsername(username: string): Promise<Admin | undefined> {
+  return Array.from(this.admins.values()).find(
+    (admin) => admin.username === username,
+  );
+}
+
+async createAdmin(insertAdmin: InsertAdmin): Promise<Admin> {
+  const id = randomUUID();
+  const admin: Admin = {
+    ...insertAdmin,
+    id,
+    createdAt: new Date(),
+  };
+
+  this.admins.set(id, admin);
+  void this.saveToDisk();
+
+  return admin;
+}
+
+// 👇 ADD THIS METHOD
+async updateAdmin(
+  id: string,
+  data: Partial<InsertAdmin>
+): Promise<Admin | undefined> {
+  const admin = this.admins.get(id);
+
+  if (!admin) {
+    return undefined;
   }
 
-  async getAdminByUsername(username: string): Promise<Admin | undefined> {
-    return Array.from(this.admins.values()).find(
-      (admin) => admin.username === username,
-    );
-  }
+  const updated: Admin = {
+    ...admin,
+    ...data,
+  };
 
-  async createAdmin(insertAdmin: InsertAdmin): Promise<Admin> {
-    const id = randomUUID();
-    const admin: Admin = { 
-      ...insertAdmin, 
-      id,
-      createdAt: new Date()
-    };
-    this.admins.set(id, admin);
-    void this.saveToDisk();
-    return admin;
-  }
+  this.admins.set(id, updated);
+  await this.saveToDisk();
+
+  return updated;
+}
+
+
 
   // Product methods
   async getAllProducts(): Promise<Product[]> {
@@ -515,15 +546,36 @@ export class MemStorage implements IStorage {
   }
 
   async updateOrderStatus(id: string, status: string): Promise<Order | undefined> {
-    const order = this.orders.get(id);
-    if (!order) return undefined;
+  const order = this.orders.get(id);
+  if (!order) return undefined;
 
-    const updated: Order = { ...order, status };
-    this.orders.set(id, updated);
-    void this.saveToDisk();
-    return updated;
-  }
+  const updated: Order = { ...order, status };
+  this.orders.set(id, updated);
+  void this.saveToDisk();
+  return updated;
 }
 
-export const storage = new MemStorage();
+// Add this method
+async updateAdmin(
+  id: string,
+  data: Partial<InsertAdmin>
+): Promise<Admin | undefined> {
+  const admin = this.admins.get(id);
 
+  if (!admin) {
+    return undefined;
+  }
+
+  const updated: Admin = {
+    ...admin,
+    ...data,
+  };
+
+  this.admins.set(id, updated);
+  await this.saveToDisk();
+
+  return updated;
+}
+}   // <-- This closing brace closes the MemStorage class
+
+export const storage = new MemStorage();

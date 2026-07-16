@@ -111,10 +111,7 @@ export async function registerRoutes(
       }
 
       // Update admin credentials
-      await storage.db
-        .update(admins)
-        .set(updateData)
-        .where(eq(admins.id, adminId));
+      await storage.updateAdmin(adminId, updateData);
 
       // Destroy session to force re-login
       req.session.destroy(() => {
