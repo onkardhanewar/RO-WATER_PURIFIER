@@ -21,6 +21,13 @@
       "email": "admin@example.com",
       "id": "76a7d275-e653-49ae-b209-1aea64624bd6",
       "createdAt": "2026-07-16T07:49:00.037Z"
+    },
+    {
+      "username": "admin",
+      "password": "$2b$10$4QnIIQp5YWgkyZmBYjMdYuhCQifIrSMcXYxb.FUXxkuoOJiC1T/ty",
+      "email": "admin@example.com",
+      "id": "42ea866b-8334-4b84-b4f4-3ba685acd421",
+      "createdAt": "2026-07-16T10:48:15.284Z"
     }
   ],
   "products": [

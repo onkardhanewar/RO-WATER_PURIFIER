@@ -1,5 +1,5 @@
 import type { Express } from "express";
-import { db, pool } from "./db";
+import { db, pool, databaseUrl } from "./db";
 import { sql } from "drizzle-orm";
 import bcrypt from "bcrypt";
 import { storage } from "./storage";
@@ -21,16 +21,32 @@ function requireSetupPassword(req: any, res: any, next: any) {
 }
 
 export function registerSetupRoutes(app: Express) {
+  function requireDatabase(res: any) {
+    if (!pool || !db) {
+      res.status(503).json({
+        success: false,
+        message: "Database is not configured on this deployment",
+        detail: "Set DATABASE_URL to enable database setup and migration endpoints.",
+      });
+      return false;
+    }
+
+    return true;
+  }
   
   // Test database connection
   app.get("/api/setup/test-connection", requireSetupPassword, async (req, res) => {
     try {
-      const result = await pool.query('SELECT NOW()');
+      if (!requireDatabase(res)) {
+        return;
+      }
+
+      const result = await pool!.query('SELECT NOW()');
       res.json({ 
         success: true, 
         message: "Database connection successful!",
         timestamp: result.rows[0].now,
-        database: process.env.DATABASE_URL?.split('@')[1]?.split('/')[1] || 'unknown'
+        database: databaseUrl?.split('@')[1]?.split('/')[1] || 'unknown'
       });
     } catch (error: any) {
       res.status(500).json({ 
@@ -44,8 +60,12 @@ export function registerSetupRoutes(app: Express) {
   // Create all database tables
   app.post("/api/setup/migrate", requireSetupPassword, async (req, res) => {
     try {
+      if (!requireDatabase(res)) {
+        return;
+      }
+
       // Create admins table
-      await db.execute(sql`
+      await db!.execute(sql`
         CREATE TABLE IF NOT EXISTS admins (
           id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
           username TEXT NOT NULL UNIQUE,
@@ -56,7 +76,7 @@ export function registerSetupRoutes(app: Express) {
       `);
 
       // Create products table
-      await db.execute(sql`
+      await db!.execute(sql`
         CREATE TABLE IF NOT EXISTS products (
           id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
           name TEXT NOT NULL,
@@ -73,7 +93,7 @@ export function registerSetupRoutes(app: Express) {
       `);
 
       // Create contact_queries table
-      await db.execute(sql`
+      await db!.execute(sql`
         CREATE TABLE IF NOT EXISTS contact_queries (
           id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
           name TEXT NOT NULL,
@@ -86,7 +106,7 @@ export function registerSetupRoutes(app: Express) {
       `);
 
       // Create service_requests table
-      await db.execute(sql`
+      await db!.execute(sql`
         CREATE TABLE IF NOT EXISTS service_requests (
           id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
           name TEXT NOT NULL,
@@ -103,7 +123,7 @@ export function registerSetupRoutes(app: Express) {
       `);
 
       // Create complaints table
-      await db.execute(sql`
+      await db!.execute(sql`
         CREATE TABLE IF NOT EXISTS complaints (
           id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
           name TEXT NOT NULL,
@@ -177,9 +197,13 @@ export function registerSetupRoutes(app: Express) {
     const steps: any[] = [];
     
     try {
+      if (!requireDatabase(res)) {
+        return;
+      }
+
       // Step 1: Test connection
       try {
-        await pool.query('SELECT NOW()');
+        await pool!.query('SELECT NOW()');
         steps.push({ step: 1, name: "Database Connection", success: true });
       } catch (error: any) {
         steps.push({ step: 1, name: "Database Connection", success: false, error: error.message });
@@ -188,7 +212,7 @@ export function registerSetupRoutes(app: Express) {
 
       // Step 2: Create tables
       try {
-        await db.execute(sql`
+        await db!.execute(sql`
           CREATE TABLE IF NOT EXISTS admins (
             id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
             username TEXT NOT NULL UNIQUE,
@@ -198,7 +222,7 @@ export function registerSetupRoutes(app: Express) {
           )
         `);
 
-        await db.execute(sql`
+        await db!.execute(sql`
           CREATE TABLE IF NOT EXISTS products (
             id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
             name TEXT NOT NULL,
@@ -214,7 +238,7 @@ export function registerSetupRoutes(app: Express) {
           )
         `);
 
-        await db.execute(sql`
+        await db!.execute(sql`
           CREATE TABLE IF NOT EXISTS contact_queries (
             id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
             name TEXT NOT NULL,
@@ -226,7 +250,7 @@ export function registerSetupRoutes(app: Express) {
           )
         `);
 
-        await db.execute(sql`
+        await db!.execute(sql`
           CREATE TABLE IF NOT EXISTS service_requests (
             id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
             name TEXT NOT NULL,
@@ -242,7 +266,7 @@ export function registerSetupRoutes(app: Express) {
           )
         `);
 
-        await db.execute(sql`
+        await db!.execute(sql`
           CREATE TABLE IF NOT EXISTS complaints (
             id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid(),
             name TEXT NOT NULL,
@@ -321,7 +345,7 @@ export function registerSetupRoutes(app: Express) {
     try {
       // Check database connection
       try {
-        await pool.query('SELECT NOW()');
+        await pool!.query('SELECT NOW()');
         status.database.connected = true;
       } catch (error) {
         status.database.connected = false;
@@ -332,7 +356,7 @@ export function registerSetupRoutes(app: Express) {
         const tables = ['admins', 'products', 'contact_queries', 'service_requests', 'complaints'];
         for (const table of tables) {
           try {
-            await db.execute(sql.raw(`SELECT 1 FROM ${table} LIMIT 1`));
+            await db!.execute(sql.raw(`SELECT 1 FROM ${table} LIMIT 1`));
             status.tables[table] = true;
           } catch (error) {
             status.tables[table] = false;
