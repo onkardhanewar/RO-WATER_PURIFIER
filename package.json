@@ -1,6 +1,5 @@
 
 {
-  "homepage": "https://onkardhanewar.github.io/RO-WATER_PURIFIER",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -8,8 +7,7 @@
     "deb": "npm run dev",   
     "dev": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+   
     "start": "NODE_ENV=production node dist/index.cjs",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
