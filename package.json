@@ -1,13 +1,12 @@
-
 {
+  "name": "replit",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "scripts": {
-    "deb": "npm run dev",   
-    "dev": "vite",
-    "build": "vite build",
-   
+    "deb": "npm run dev",
+    "dev": "tsx watch --env-file .env server/index.ts",
+    "build": "tsx script/build.ts",
     "start": "NODE_ENV=production node dist/index.cjs",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
