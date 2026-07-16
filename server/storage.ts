@@ -555,27 +555,6 @@ async updateAdmin(
   return updated;
 }
 
-// Add this method
-async updateAdmin(
-  id: string,
-  data: Partial<InsertAdmin>
-): Promise<Admin | undefined> {
-  const admin = this.admins.get(id);
-
-  if (!admin) {
-    return undefined;
-  }
-
-  const updated: Admin = {
-    ...admin,
-    ...data,
-  };
-
-  this.admins.set(id, updated);
-  await this.saveToDisk();
-
-  return updated;
-}
 }   // <-- This closing brace closes the MemStorage class
 
 export const storage = new MemStorage();
