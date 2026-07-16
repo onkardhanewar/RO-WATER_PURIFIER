@@ -98,7 +98,7 @@ export default function About() {
             ].map((value, index) => (
               <div key={index} className="text-center">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <i className={`${value.icon} text-2xl text-primary`} />
+                  <i className={`${value.icon} text-2xl text-primary animate-icon-pulse`} />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{value.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{value.desc}</p>

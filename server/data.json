@@ -1,0 +1,367 @@
+{
+  "users": [],
+  "admins": [
+    {
+      "username": "admin",
+      "password": "$2b$10$1I5dkf65p1g.YF2oSlJgXuEgpvKHTARGK3JLpDVh4ArphorUiIPMK",
+      "email": "admin@example.com",
+      "id": "9d16ee30-a81f-4cbd-a933-b1d644d7ed29",
+      "createdAt": "2025-12-08T18:58:57.621Z"
+    },
+    {
+      "username": "admin",
+      "password": "$2b$10$IRlxh4dNM6a3DWZORS4oI./TkMCASKwOrcCpYCPtOEB7F8LEjfKDy",
+      "email": "admin@example.com",
+      "id": "0a9d0a1b-7f50-4020-af02-9a798d8ba74e",
+      "createdAt": "2025-12-09T21:56:46.953Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "name": "AquaPure RO 7L",
+      "description": "Compact RO purifier with mineral cartridge and UV sterilization.",
+      "price": 12999,
+      "image": "https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "features": [
+        "UV Sterilization",
+        "Mineral Technology",
+        "7L Capacity"
+      ],
+      "capacity": "7L",
+      "warranty": "1 year",
+      "inStock": true,
+      "createdAt": "2025-12-08T18:59:36.454Z",
+      "updatedAt": "2025-12-08T19:28:43.008Z"
+    },
+    {
+      "id": "7481767d-917e-411e-a5d4-682744c54b90",
+      "name": "AquaPure RO 10L Plus",
+      "description": "High capacity RO with TDS controller and advanced filters.",
+      "price": 17999,
+      "image": "https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "features": [
+        "TDS Controller",
+        "10L Capacity",
+        "Low Power Mode"
+      ],
+      "capacity": "10L",
+      "warranty": "2 years",
+      "inStock": true,
+      "createdAt": "2025-12-08T18:59:36.454Z",
+      "updatedAt": "2025-12-08T19:28:53.674Z"
+    },
+    {
+      "name": "Ro+UV Water Filter",
+      "description": "iahciaihav",
+      "price": 5244,
+      "image": "/assets/images/products/1765226836161-973269845.jpg",
+      "features": [
+        "hjbasacbc",
+        "acasc",
+        "ascasca",
+        "ascasc",
+        "ascasc",
+        "ascasc",
+        "ascascca",
+        "scasc"
+      ],
+      "capacity": "10L",
+      "warranty": "5",
+      "inStock": true,
+      "id": "87a5d67a-7943-4375-b42e-91ae66a6ac86",
+      "createdAt": "2025-12-08T20:47:16.185Z",
+      "updatedAt": "2025-12-08T20:47:16.185Z"
+    },
+    {
+      "name": "RO ultra +UV premeum",
+      "description": "this is the ro make more effficient water puritty and make ultra uv protection ,coper plated water",
+      "price": 5544,
+      "image": "/assets/images/products/1765227217029-247576513.jpg",
+      "features": [
+        "7stages of uv ",
+        "ultra uv",
+        "copper + ",
+        "advance"
+      ],
+      "capacity": "120",
+      "warranty": "1",
+      "inStock": true,
+      "id": "365f8c0d-0840-4e3f-afb5-29b7b352c07b",
+      "createdAt": "2025-12-08T20:53:37.041Z",
+      "updatedAt": "2025-12-08T20:53:37.041Z"
+    },
+    {
+      "name": " jksncajkcn",
+      "description": "ancnacnajkcnac",
+      "price": 2223,
+      "image": "/assets/images/products/1765233194364-928029339.webp",
+      "features": [
+        "qwwaZxcxsca",
+        "dawdawda",
+        "adada",
+        "adawda",
+        "dawd"
+      ],
+      "capacity": "22",
+      "warranty": "23",
+      "inStock": true,
+      "id": "5b8df7d8-7a8a-4ded-b931-fa52aa27cd64",
+      "createdAt": "2025-12-08T22:33:14.389Z",
+      "updatedAt": "2025-12-08T22:33:14.389Z"
+    },
+    {
+      "name": "onkar dhanewar",
+      "description": "jkhd",
+      "price": 2,
+      "image": "/assets/images/products/1765317524623-662425188.jpg",
+      "features": [
+        "ukfdith"
+      ],
+      "capacity": "2",
+      "warranty": "55",
+      "inStock": true,
+      "id": "9a7b62e2-56a0-411c-b386-3458a2a7ae7f",
+      "createdAt": "2025-12-09T21:58:44.650Z",
+      "updatedAt": "2025-12-09T21:58:44.650Z"
+    }
+  ],
+  "contactQueries": [
+    {
+      "name": "ONKAR RAJENDRA DHANEWAR",
+      "email": "test@gmail.com",
+      "phone": "09284721194",
+      "message": "Service Type: installation\n\nsnsm vsvsv",
+      "id": "c34ae524-4aa2-4c6b-acef-e5a203738cbc",
+      "status": "pending",
+      "createdAt": "2025-12-08T20:33:17.094Z"
+    }
+  ],
+  "serviceRequests": [
+    {
+      "name": "ONKAR RAJENDRA DHANEWAR",
+      "email": "test@gmail.com",
+      "phone": "+919284721194",
+      "address": "wardha",
+      "serviceType": "maintenance",
+      "productModel": "hdcbhs",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "id": "6fa986b9-db12-41e7-b174-5f73c19cd74a",
+      "status": "pending",
+      "scheduledDate": null,
+      "createdAt": "2025-12-08T20:45:35.568Z"
+    },
+    {
+      "name": "joginder RAJENDRA DHANEWAR",
+      "email": "jogindre@hksdh",
+      "phone": "+919284721194",
+      "address": "wardha",
+      "serviceType": "repair",
+      "productModel": "lg",
+      "description": "jhsdkfhsk lg",
+      "id": "3d89c7d0-aeb5-4bd4-ad2b-8d9c19e4732f",
+      "status": "pending",
+      "scheduledDate": null,
+      "createdAt": "2025-12-09T19:50:39.000Z"
+    }
+  ],
+  "complaints": [
+    {
+      "name": "ONKAR RAJENDRA DHANEWAR",
+      "email": "test@gmail.com",
+      "phone": "+919284721194",
+      "productModel": "m,s ccm,s c",
+      "complaintType": "service-issue",
+      "description": "sc ssm vs m,vm, sksdsvsdsvmsdvm,sdvsmdmv msv",
+      "id": "3f711f54-a3d8-4327-8c8d-0c6a1df67cf3",
+      "priority": "high",
+      "status": "open",
+      "resolution": null,
+      "createdAt": "2025-12-08T20:31:54.170Z",
+      "resolvedAt": "2025-12-09T20:06:34.482Z"
+    }
+  ],
+  "cartItems": [
+    {
+      "sessionId": "axaz6yhB-dmuu9SwGwmLQDZC0jhO8mTj",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "87d28721-eec6-4de3-8b20-181d7ead2267",
+      "createdAt": "2025-12-08T19:12:40.120Z"
+    },
+    {
+      "sessionId": "AoIOqdsU9VM-xsYvCB6Ru90AAsdkdFNF",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "89a8355b-4a2f-4d3c-b9c8-00ebfbe9248e",
+      "createdAt": "2025-12-08T19:27:44.983Z"
+    },
+    {
+      "sessionId": "zkIAX_tO1DiaSNTOy3LW0BE4GkFB6s-L",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "0d69d7bc-b384-416a-8325-81f299debccd",
+      "createdAt": "2025-12-08T19:27:54.568Z"
+    },
+    {
+      "sessionId": "hmrdJzztg-0LGaYkplafDCtz1lTyOTZb",
+      "productId": "7481767d-917e-411e-a5d4-682744c54b90",
+      "quantity": 1,
+      "id": "7be63de6-57c5-411a-9afc-00ae4a9da2cc",
+      "createdAt": "2025-12-08T19:30:57.235Z"
+    },
+    {
+      "sessionId": "iutdpIQZElhb7Ia4-2jQyU31jmiQXWv2",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "0898b937-337d-4faa-be24-5237ac4ced0f",
+      "createdAt": "2025-12-08T19:31:10.346Z"
+    },
+    {
+      "sessionId": "MUiEAhbsxLxFsDLEjZCmbZXhMyFumSlu",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "4e79dc4e-95a7-4fee-bff1-927e05929a68",
+      "createdAt": "2025-12-08T19:31:17.483Z"
+    },
+    {
+      "sessionId": "AWstW33_6M3n2takELgWu6U9CVjl23rS",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "b5d11972-1946-45a0-b014-3ed1ecb44fef",
+      "createdAt": "2025-12-08T19:34:26.618Z"
+    },
+    {
+      "sessionId": "Pr24ZPqAQ4SPRKtamSc5GZviohE_f5TW",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "311f69d1-d5ce-41f3-a255-005399ecf5a7",
+      "createdAt": "2025-12-08T19:34:41.450Z"
+    },
+    {
+      "sessionId": "ZR5z3yFpdBo0Ndd6FeiBeLVifiRpmy5t",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "e51cef0b-3867-44ed-9858-fb1cd3a73e9e",
+      "createdAt": "2025-12-08T19:35:56.078Z"
+    },
+    {
+      "sessionId": "77nv8QGwW3JsBVaABpzzuJHctHxOjWoT",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "cd292cc2-15ed-4e07-b8f5-badd70e261ed",
+      "createdAt": "2025-12-08T19:36:02.393Z"
+    },
+    {
+      "sessionId": "0qltmkfKdEmZ5dttiK3Qtn2lcczTuVJP",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "ec9b6512-b03b-43b7-b260-67115a310160",
+      "createdAt": "2025-12-08T19:38:16.716Z"
+    },
+    {
+      "sessionId": "aEN3OsLRDhKoPdEW3ligmj-jlSr_srtw",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "cc552549-86dd-4dad-973c-d4a997aacd39",
+      "createdAt": "2025-12-08T19:38:44.538Z"
+    },
+    {
+      "sessionId": "N1_pF-GCfNR8xotw4SiEW7h-QotD51CW",
+      "productId": "7481767d-917e-411e-a5d4-682744c54b90",
+      "quantity": 1,
+      "id": "7590ef66-a972-4166-b94d-3e93b4ec7d0b",
+      "createdAt": "2025-12-08T19:39:08.289Z"
+    },
+    {
+      "sessionId": "N1_pF-GCfNR8xotw4SiEW7h-QotD51CW",
+      "productId": "530f1519-b2b7-4ca3-a211-3afa72a2e6da",
+      "quantity": 1,
+      "id": "6ba80137-7ff2-4ede-88f8-c31f92b3396d",
+      "createdAt": "2025-12-08T19:39:28.755Z"
+    },
+    {
+      "sessionId": "QER3mgE2LgzYOtDf7LiCpBjKfAj3vC2B",
+      "productId": "87a5d67a-7943-4375-b42e-91ae66a6ac86",
+      "quantity": 1,
+      "id": "d4bd819d-0908-4923-908c-d2d20fd63cdd",
+      "createdAt": "2025-12-08T20:47:30.573Z"
+    },
+    {
+      "sessionId": "SjZCoLOb_NetqrwrJaI07jYjCgbNRyKH",
+      "productId": "5b8df7d8-7a8a-4ded-b931-fa52aa27cd64",
+      "quantity": 1,
+      "id": "909e21bb-707a-4c4e-857b-c3b5d47e7946",
+      "createdAt": "2025-12-09T18:48:11.557Z"
+    },
+    {
+      "sessionId": "QDSFDs7A2xt2EeMA8-DvoKCg99BpwSmv",
+      "productId": "87a5d67a-7943-4375-b42e-91ae66a6ac86",
+      "quantity": 1,
+      "id": "e2827816-5df8-4549-b557-62786ea070cb",
+      "createdAt": "2025-12-09T19:52:22.163Z"
+    }
+  ],
+  "orders": [
+    {
+      "customerName": "ONKAR RAJENDRA DHANEWAR",
+      "email": "onkardhanewar@gmail.com",
+      "phone": "0928472119",
+      "address": "wardha",
+      "city": "wardha",
+      "pincode": "442201",
+      "landmark": "landura gali",
+      "installationDate": "2025-12-24",
+      "installationTimeSlot": "afternoon",
+      "additionalNotes": "nopd",
+      "items": "[{\"productId\":\"7481767d-917e-411e-a5d4-682744c54b90\",\"productName\":\"AquaPure RO 10L Plus\",\"quantity\":1,\"price\":17999},{\"productId\":\"530f1519-b2b7-4ca3-a211-3afa72a2e6da\",\"productName\":\"AquaPure RO 7L\",\"quantity\":1,\"price\":12999}]",
+      "subtotal": 30998,
+      "tax": 5580,
+      "total": 36578,
+      "id": "90bd7e48-9482-4719-96f5-f60ad2f97b02",
+      "orderNumber": "ORD1765222819434666",
+      "status": "pending",
+      "createdAt": "2025-12-08T19:40:19.434Z"
+    },
+    {
+      "customerName": "ONKAR RAJENDRA DHANEWAR",
+      "email": "vaishnavigadiwan31@gmail.com",
+      "phone": "0284721194",
+      "address": "wardha",
+      "city": "wardha",
+      "pincode": "442201",
+      "landmark": "dsjlfjslsfjslkjdflks",
+      "installationDate": "2026-01-01",
+      "installationTimeSlot": "afternoon",
+      "additionalNotes": "none of this",
+      "items": "[{\"productId\":\"87a5d67a-7943-4375-b42e-91ae66a6ac86\",\"productName\":\"Ro+UV Water Filter\",\"quantity\":1,\"price\":5244}]",
+      "subtotal": 5244,
+      "tax": 944,
+      "total": 6188,
+      "id": "51c08788-23cc-4322-9e01-509393155854",
+      "orderNumber": "ORD1765310028126762",
+      "status": "pending",
+      "createdAt": "2025-12-09T19:53:48.126Z"
+    },
+    {
+      "customerName": "Omkar Dhannewar",
+      "email": "omkardhannewar1@gmail.com",
+      "phone": "0928472119",
+      "address": "Gadchiroli",
+      "city": "Gadchiroli",
+      "pincode": "442605",
+      "landmark": "durga nagar",
+      "installationDate": "2025-12-26",
+      "installationTimeSlot": "afternoon",
+      "additionalNotes": "MIDC ROAD",
+      "items": "[{\"productId\":\"365f8c0d-0840-4e3f-afb5-29b7b352c07b\",\"productName\":\"RO ultra +UV premeum\",\"quantity\":1,\"price\":5544}]",
+      "subtotal": 5544,
+      "tax": 998,
+      "total": 6542,
+      "id": "364cddb4-eed9-4327-9fc0-9dd3a5c5fd2d",
+      "orderNumber": "ORD1765310769471947",
+      "status": "pending",
+      "createdAt": "2025-12-09T20:06:09.471Z"
+    }
+  ]
+}

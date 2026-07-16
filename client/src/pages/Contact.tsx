@@ -36,22 +36,43 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // todo: remove mock functionality - replace with actual API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: `Service Type: ${formData.serviceType || 'General'}\n\n${formData.message}`,
+        }),
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you within 24 hours.",
+        });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      serviceType: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          serviceType: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,7 +114,7 @@ export default function Contact() {
                         className="text-foreground font-medium hover:text-primary transition-colors"
                         data-testid="contact-phone"
                       >
-                        +91 123 456 7890
+                        +91 82088 36372
                       </a>
                     </div>
                   </div>
@@ -109,7 +130,7 @@ export default function Contact() {
                         className="text-foreground font-medium hover:text-primary transition-colors"
                         data-testid="contact-email"
                       >
-                        hello@aquapure.in
+                        support@amravatiro.com
                       </a>
                     </div>
                   </div>
@@ -121,7 +142,7 @@ export default function Contact() {
                     <div>
                       <div className="text-sm text-muted-foreground">Address</div>
                       <p className="text-foreground font-medium" data-testid="contact-address">
-                        Mumbai, Maharashtra
+                        Plot no 7, Behind bus stand, near Adhiraj mini mart-kedar chauk road, Warud
                       </p>
                     </div>
                   </div>

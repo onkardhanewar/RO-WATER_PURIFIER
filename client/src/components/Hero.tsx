@@ -13,9 +13,15 @@ export default function Hero() {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         data-testid="hero-video"
+        key={Date.now()}
       >
+        {/* Try video in `client/public/images/` first (if you placed it there),
+            then `client/public/bgvide.mp4`, then fallback to the CDN. */}
+        <source src={`/images/bgvide.mp4?v=${Date.now()}`} type="video/mp4" />
+        <source src={`/bgvide.mp4?v=${Date.now()}`} type="video/mp4" />
         <source
           src="https://cdn.pixabay.com/video/2020/07/30/45875-447087857_large.mp4"
           type="video/mp4"
@@ -51,6 +57,16 @@ export default function Hero() {
           <Link href="/products">
             <Button size="lg" data-testid="hero-cta-primary" className="min-w-40">
               View Products
+            </Button>
+          </Link>
+          <Link href="/services">
+            <Button
+              variant="outline"
+              size="lg"
+              data-testid="hero-cta-services"
+              className="min-w-40 bg-white/5 backdrop-blur border-white/20 text-white hover:bg-white/10"
+            >
+              Our Services
             </Button>
           </Link>
           <Link href="/contact">

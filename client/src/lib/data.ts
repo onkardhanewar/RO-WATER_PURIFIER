@@ -78,10 +78,10 @@ export const services: Service[] = [
 ];
 
 export const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "50K+", label: "Happy Customers" },
-  { value: "100+", label: "Cities Served" },
-  { value: "24/7", label: "Support Available" },
+  { value: 15, suffix: "+", label: "Years Experience" },
+  { value: 50, suffix: "K+", label: "Happy Customers" },
+  { value: 100, suffix: "+", label: "Cities Served" },
+  { value: 24, suffix: "/7", label: "Support Available" },
 ];
 
 export const highlights = [
