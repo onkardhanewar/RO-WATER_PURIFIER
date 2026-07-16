@@ -27,9 +27,14 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   
   // Admin methods
-  getAdminById(id: string): Promise<Admin | undefined>;
-  getAdminByUsername(username: string): Promise<Admin | undefined>;
-  createAdmin(admin: InsertAdmin): Promise<Admin>;
+  // Admin methods
+getAdminById(id: string): Promise<Admin | undefined>;
+getAdminByUsername(username: string): Promise<Admin | undefined>;
+createAdmin(admin: InsertAdmin): Promise<Admin>;
+updateAdmin(
+  id: string,
+  data: Partial<InsertAdmin>
+): Promise<Admin | undefined>;
   
   // Product methods
   getAllProducts(): Promise<Product[]>;
@@ -250,6 +255,26 @@ async createAdmin(insertAdmin: InsertAdmin): Promise<Admin> {
 }
 
 // 👇 ADD THIS METHOD
+async updateAdmin(
+  id: string,
+  data: Partial<InsertAdmin>
+): Promise<Admin | undefined> {
+  const admin = this.admins.get(id);
+
+  if (!admin) {
+    return undefined;
+  }
+
+  const updated: Admin = {
+    ...admin,
+    ...data,
+  };
+
+  this.admins.set(id, updated);
+  await this.saveToDisk();
+
+  return updated;
+}
 
 
 
