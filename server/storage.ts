@@ -88,6 +88,21 @@ export class MemStorage implements IStorage {
   private dataFile: string;
   private saving = false;
 
+  private normalizeFeatures(features: InsertProduct["features"]): string[] {
+    if (Array.isArray(features)) {
+      return features;
+    }
+
+    if (typeof features === "string" && features.trim()) {
+      return features
+        .split(",")
+        .map((feature) => feature.trim())
+        .filter(Boolean);
+    }
+
+    return [];
+  }
+
   constructor() {
     this.users = new Map();
     this.admins = new Map();
@@ -300,6 +315,8 @@ async updateAdmin(
     const id = randomUUID();
     const product: Product = {
       ...insertProduct,
+      features: this.normalizeFeatures(insertProduct.features),
+      inStock: insertProduct.inStock ?? true,
       id,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -316,6 +333,8 @@ async updateAdmin(
     const updated: Product = {
       ...product,
       ...data,
+      features: data.features !== undefined ? this.normalizeFeatures(data.features) : product.features,
+      inStock: data.inStock !== undefined ? data.inStock : product.inStock,
       updatedAt: new Date(),
     };
     this.products.set(id, updated);
@@ -363,6 +382,7 @@ async updateAdmin(
     const id = randomUUID();
     const request: ServiceRequest = {
       ...insertRequest,
+      productModel: insertRequest.productModel ?? null,
       id,
       status: "pending",
       scheduledDate: null,
@@ -394,6 +414,7 @@ async updateAdmin(
     const id = randomUUID();
     const complaint: Complaint = {
       ...insertComplaint,
+      productModel: insertComplaint.productModel ?? null,
       id,
       priority: "medium",
       status: "open",
@@ -471,7 +492,7 @@ async updateAdmin(
       // Update quantity
       const updated: CartItem = {
         ...existing,
-        quantity: existing.quantity + insertItem.quantity,
+        quantity: existing.quantity + (insertItem.quantity ?? 1),
       };
       this.cartItems.set(existing.id, updated);
       void this.saveToDisk();
@@ -481,6 +502,7 @@ async updateAdmin(
     const id = randomUUID();
     const item: CartItem = {
       ...insertItem,
+      quantity: insertItem.quantity ?? 1,
       id,
       createdAt: new Date(),
     };
@@ -522,6 +544,10 @@ async updateAdmin(
     const orderNumber = `ORD${Date.now()}${Math.floor(Math.random() * 1000)}`;
     const order: Order = {
       ...insertOrder,
+      landmark: insertOrder.landmark ?? null,
+      installationDate: insertOrder.installationDate ?? null,
+      installationTimeSlot: insertOrder.installationTimeSlot ?? null,
+      additionalNotes: insertOrder.additionalNotes ?? null,
       id,
       orderNumber,
       status: "pending",

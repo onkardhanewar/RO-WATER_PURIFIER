@@ -62,7 +62,12 @@ export async function registerRoutes(
 
   app.get("/api/admin/me", requireAdmin, async (req, res) => {
     try {
-      const admin = await storage.getAdminById(req.session.adminId);
+      const adminId = req.session.adminId;
+      if (!adminId) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
+
+      const admin = await storage.getAdminById(adminId);
       if (!admin) {
         return res.status(404).json({ message: "Admin not found" });
       }
@@ -77,6 +82,10 @@ export async function registerRoutes(
     try {
       const { currentPassword, newUsername, newPassword } = req.body;
       const adminId = req.session.adminId;
+
+      if (!adminId) {
+        return res.status(401).json({ message: "Unauthorized" });
+      }
 
       // Get current admin
       const admin = await storage.getAdminById(adminId);
